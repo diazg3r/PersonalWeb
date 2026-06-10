@@ -381,8 +381,38 @@ img { max-width: 100%; display: block; }
   align-items: start;
 }
 
-.about-text p      { color: var(--text-2); margin-bottom: 1rem; font-size: .95rem; }
-.about-text strong { color: var(--text); font-weight: 500; }
+.about-left p      { color: var(--text-2); margin-bottom: 1rem; font-size: .95rem; }
+.about-left strong { color: var(--text); font-weight: 500; }
+
+/* Profile photo placeholder */
+.profile-placeholder {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px dashed var(--border);
+  background: var(--bg-alt);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  color: var(--text-3);
+  font-size: .75rem;
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+  transition: border-color .2s ease;
+}
+.profile-placeholder:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Real photo — swap in when ready */
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.75rem;
+  border: 3px solid var(--border);
+}
 
 .about-langs {
   display: flex;
@@ -518,49 +548,33 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--shadow-md);
 }
 
+/* Thin color accent strip at top of each card */
+.project-accent {
+  height: 5px;
+  width: 100%;
+  border-radius: 0;
+}
+.project-accent-1 { background: linear-gradient(90deg, #6366F1, #8B5CF6); }
+.project-accent-2 { background: linear-gradient(90deg, #0EA5E9, #06B6D4); }
+.project-accent-3 { background: linear-gradient(90deg, #F59E0B, #EF4444); }
+.project-accent-4 { background: linear-gradient(90deg, #EF4444, #F97316); }
+.project-accent-5 { background: linear-gradient(90deg, #06B6D4, #10B981); }
+.project-accent-6 { background: linear-gradient(90deg, #4F46E5, #7C3AED); }
+
+/* Project image banner (used when a real image is added) */
 .project-img {
-  height: 150px;
-  display: flex;
-  align-items: flex-end;
-  padding: .85rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.project-img-1 { background: linear-gradient(135deg, #6366F1, #8B5CF6); }
-.project-img-2 { background: linear-gradient(135deg, #0EA5E9, #06B6D4); }
-.project-img-3 { background: linear-gradient(135deg, #F59E0B, #EF4444); }
-.project-img-4 { background: linear-gradient(135deg, #EF4444, #F97316); }
-.project-img-5 { background: linear-gradient(135deg, #06B6D4, #10B981); }
-.project-img-6 { background: linear-gradient(135deg, #4F46E5, #7C3AED); }
-
-.project-img-label {
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.9);
-  background: rgba(0,0,0,.2);
-  backdrop-filter: blur(4px);
-  padding: .25rem .65rem;
-  border-radius: 4px;
-  position: relative;
-  z-index: 1;
-}
-
-/* Image-based project banners */
-.project-img.has-image {
+  height: 180px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
 }
-.project-img.has-image::after {
+.project-img::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.35);
+  background: rgba(0,0,0,.3);
 }
-.project-img.has-image .project-img-label { z-index: 2; }
 
 .project-body { padding: 1.25rem; }
 
@@ -588,7 +602,20 @@ img { max-width: 100%; display: block; }
   border-radius: 3px;
 }
 
-.project-tech { display: flex; flex-wrap: wrap; gap: .35rem; }
+.project-tech { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1rem; }
+
+.project-footer {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--text-3);
+  padding-top: .85rem;
+  border-top: 1px solid var(--border);
+  transition: color .2s ease;
+}
+.project-card:hover .project-footer { color: var(--accent); }
 
 .tech-tag {
   font-size: .72rem;
